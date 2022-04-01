@@ -50,8 +50,8 @@ body {
   display: inline-block;
   background: rgb(255, 2, 102);
   background: linear-gradient(90deg,
-      rgba(255, 2, 102, 1) 0%,
-      rgba(91, 96, 207, 1) 100%);
+      rgb(255, 196, 2) 0%,
+      rgb(91, 207, 97) 100%);
   padding-left: 16px;
 }
 
@@ -117,7 +117,7 @@ body {
 }
 
 .left-nav ul li a.active {
-  color: #F2994A;
+  color: #4a98f2;
 }
 
 .left-nav ul li a i {
@@ -132,8 +132,8 @@ body {
 
 .market-cap-option span {
   display: flex;
-  color: #F2994A;
-  text-shadow: 0px 0px 13px rgba(226, 207, 38, 0.79);
+  color: #4a98f2;
+  text-shadow: 0px 0px 13px #4a98f2;
 }
 
 .market-cap-option span i {
@@ -185,8 +185,8 @@ body {
   right: -7px;
 }
 .roi-val {
-  color: #F2994A;
-  text-shadow: 0px 0px 13px rgb(226 207 38 / 79%);
+  color: #4a98f2;
+  text-shadow: 0px 0px 13px #4a98f2;
 }
 
 .staking-wrap {
@@ -255,7 +255,7 @@ body {
 }
 
 .calculator h2 {
-  color: #F2994A;
+  color: #4a98f2;
   font-size: 14px;
   margin-bottom: 19px;
   text-transform: uppercase;
@@ -335,12 +335,12 @@ span.active {
 }
 
 button.bh-bt.btn.btn-secondary.btn-sm {
-  background-image: linear-gradient(to right, #F2994A 0%, #F2C94C 51%, #F2994A 100%);
+  background-color: #4a98f2;
   box-shadow: 12px 12px 22px rgb(0 0 0 / 25%);
   border: none;
 }
 span.active {
-  background-image: linear-gradient(to right, #F2994A 0%, #F2C94C 51%, #F2994A 100%);
+  background-color: #4a98f2;
   box-shadow: 12px 12px 22px rgb(0 0 0 / 25%);
 
 }
@@ -431,8 +431,8 @@ p.rwt {
 
 .top-col h3 {
   display: flex;
-  color: #F2994A;
-  text-shadow: 0px 0px 13px rgb(226 207 38 / 79%);
+  color: #4a98f2;
+  text-shadow: 0px 0px 13px #4a98f2;
   font-size: 15px;
   margin: 0;
 }
@@ -457,7 +457,7 @@ div.bg-dark {
   color: #020202 !important;
   border: 0;
   font-weight: 500;
-  background-image: linear-gradient(to right, #F2994A 0%, #F2C94C 51%, #F2994A 100%);
+  background-color: #4a98f2;
   box-shadow: 12px 12px 22px rgb(0 0 0 / 25%);
 }
 @media(max-width:767px) {
