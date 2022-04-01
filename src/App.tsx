@@ -11,7 +11,6 @@ import {
 } from "react-bootstrap";
 import homeIcon from "./img/home.png";
 //import stakeIcon from "./img/stake.png";
-//import saleIcon from "./img/sale.png";
 import todoIcon from "./img/todo.png";
 import fuuLogo from "./img/kngfuu_logo.png";
 import socialIcon from "./img/social.png";
