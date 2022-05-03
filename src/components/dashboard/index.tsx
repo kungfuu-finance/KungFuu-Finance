@@ -7,15 +7,16 @@ import { useEffect, useState } from 'react';
 export default function Dashboard() {
     const [balance, setbalance] = useState<any>();
     const [rfvbalance, setrfvbalance] = useState<any>();
-    const [kff, setkff] = useState<any>();
+    const [rfvusdcbalance, setrfvusdcbalance] = useState<any>();
+    //const [kff, setkff] = useState<any>();
     const [burnbalance, setburnbalance] = useState<any>();
-    const [usdc, setusdc] = useState<any>();
+    //const [usdc, setusdc] = useState<any>();
     const [kungfuuprice, setkungfuuprice] = useState<any>();
     const [timer, settimer] = useState<any>();
     const { enableWeb3, Moralis, authenticate, isAuthenticated, user, logout } = useMoralis();
     const { data: rebase, fetch: fetchrebase } = useWeb3ExecuteFunction();
     const { data: supply, fetch: fetchsupply } = useWeb3ExecuteFunction();
-    const { data: BUSD, fetch: fetchBUSD } = useWeb3ExecuteFunction();
+    //const { data: BUSD, fetch: fetchBUSD } = useWeb3ExecuteFunction();
     const { data: indBal, fetch: fetchindBal } = useWeb3ExecuteFunction();
     //const { data: burned, fetch: fetchburned } = useWeb3ExecuteFunction();
     const options = {
@@ -66,8 +67,11 @@ export default function Dashboard() {
         const balance = await Moralis.Web3API.account.getNativeBalance({chain:'0xfa',address: '0x914aDbe1a641F1E4A8ce22776D342d4C2669f030'}); //Treasury Receiver
         setbalance(balance);
 
-        const rfvbalance = await Moralis.Web3API.account.getTokenBalances({chain:'0xfa',token_addresses:['0x04068DA6C83AFCFA0e13ba15A6696662335D5B75'],address: '0xaAEf45E31e2D2865A4722c1591BA4cd8f6e83bad'});
-        setrfvbalance(rfvbalance);
+        const rfvbalance = await Moralis.Web3API.account.getTokenBalances({chain:'0xfa',token_addresses:['0x280dC734Aa2592a2f0d4582200CFd6D8067b72A8'],address: '0xaAEf45E31e2D2865A4722c1591BA4cd8f6e83bad'});
+        setrfvbalance(rfvbalance); //Updated to Tarot 0xaAEf45E31e2D2865A4722c1591BA4cd8f6e83bad
+
+        const rfvusdcbalance = await Moralis.Web3API.account.getTokenBalances({chain:'0xfa',token_addresses:['0x04068DA6C83AFCFA0e13ba15A6696662335D5B75'],address: '0xaAEf45E31e2D2865A4722c1591BA4cd8f6e83bad'});
+        setrfvusdcbalance(rfvusdcbalance); //Updated to Tarot 0xaAEf45E31e2D2865A4722c1591BA4cd8f6e83bad
 
         const burnbalance = await Moralis.Web3API.account.getTokenBalances({chain:'0xfa',token_addresses:['0x89b61Ab033584918103698953870F07D6db412A3'],address: '0x000000000000000000000000000000000000dEaD'});
         setburnbalance(burnbalance);
@@ -89,7 +93,7 @@ export default function Dashboard() {
     },[])
     return (
         <>
-            <Col lg="7">
+            <Col lg="9">
                 <div className="market-cap-statistic-wrapper">
                     <div className="marketcap">
                         <div className="market-cap-option">
@@ -98,6 +102,14 @@ export default function Dashboard() {
                                 <p>Circulating Supply</p>
                             </span>
                             {supply && (<div className="box">{(parseInt(JSON.parse(JSON.stringify(supply)).hex,16)/Math.pow(10,18)-3500000000).toFixed(0).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')} KNGFUU</div>)}
+                        </div>
+
+                        <div className="market-cap-option">
+                            <span className="align-center">
+                                <i className="fa fa-fire" aria-hidden="true"></i>
+                                <p>Total Burned</p>
+                            </span>
+                            {burnbalance && (<div className="box">{(parseInt(JSON.parse(JSON.stringify(burnbalance[0])).balance)/Math.pow(10,18)).toFixed().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')} KNGFUU</div>)}
                         </div>
 
                         <div className="market-cap-option">
@@ -111,7 +123,7 @@ export default function Dashboard() {
 
                         <div className="market-cap-option">
                             <span className="align-center">
-                                <i className="fa fa-superpowers" aria-hidden="true"></i>
+                                <i className="fa fa-clock-o" aria-hidden="true"></i>
                                 <p>Next rebase</p>
                             </span>
                             {timer && (<div className="box">{timer}</div>)}
@@ -121,13 +133,7 @@ export default function Dashboard() {
 
                     <br />
                     <div className="marketcap">
-                        <div className="market-cap-option">
-                            <span className="align-center">
-                                <i className="fa fa-line-chart" aria-hidden="true"></i>
-                                <p>Total Burned</p>
-                            </span>
-                            {burnbalance && (<div className="box">{(parseInt(JSON.parse(JSON.stringify(burnbalance[0])).balance)/Math.pow(10,18)).toFixed()} KNGFUU</div>)}
-                        </div>
+                        
 
                         <div className="market-cap-option">
                             <span className="align-center">
@@ -140,12 +146,23 @@ export default function Dashboard() {
 
                         <div className="market-cap-option">
                             <span className="align-center">
-                                <i className="fa fa-superpowers" aria-hidden="true"></i>
-                                <p>RFV Fund</p>
+                                <i className="fa fa-usd" aria-hidden="true"></i>
+                                <p>RFV USDC Fund</p>
                             </span>
-                            {rfvbalance && (<div className="box">${(parseInt(JSON.parse(JSON.stringify(rfvbalance[0])).balance)/Math.pow(10,6)).toFixed()} USD
-                            </div>)}
+                            {rfvusdcbalance && (<div className="box">${(parseInt(JSON.parse(JSON.stringify(rfvusdcbalance[0])).balance)/Math.pow(10,6)).toFixed().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')} USD
+                            </div>)} {/* Reset to Math.pow(10,6) when swapping back to USDC*/}
                         </div>
+
+                        <div className="market-cap-option">
+                            <span className="align-center">
+                                <i className="fa fa-money" aria-hidden="true"></i>
+                                <p>RFV Yield Fund</p>
+                            </span>
+                            {/*<div className="box">Deployed on Tarot</div>*/}
+                            {rfvbalance && (<div className="box">${(parseInt(JSON.parse(JSON.stringify(rfvbalance[0])).balance)/Math.pow(10,18)*1.0176).toFixed().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')} USD
+                            </div>)} {/* Reset to Math.pow(10,6) when swapping back to USDC*/}
+                        </div>
+                        
                     </div>
 
                     <div className="staking-wrap">
@@ -220,8 +237,8 @@ export default function Dashboard() {
                 </div>
             </Col>
 
-            <Col lg="3">
-                {/* <div className="calculator">
+            {/*<Col lg="3">
+                 <div className="calculator">
                     <h2> <img src={calculatorIcon} style={{"width": "20px", height: "21px"}} alt="" />calculator</h2>
                     <div className="calculator-box">
                         <h3>Estimate your returns</h3>
@@ -242,13 +259,12 @@ export default function Dashboard() {
                             <h4>$Total USD balance</h4>
                             <h5 className='totalBal'>55,856,56,61.56</h5>
                         </div>
-                        <p className="rwt" style={{visibility: 'hidden'}}>Vivamus suscipit tortor eget felis porttitor volutpa</p> 
-                    */}
+                        <p className="rwt">Vivamus suscipit tortor eget felis porttitor volutpa</p> 
+                    
                     <div className="fgh"><Button variant="secondary" size="sm" className="bh-bt" onClick={buykungfuu}>Buy KungFuu</Button></div>
-                        
-                    {/* </div>
-                </div> */}
-            </Col>
+                     </div>
+                </div> 
+                        </Col>*/}
         </>
     )
 }

@@ -11,9 +11,9 @@ import {
 } from "react-bootstrap";
 import homeIcon from "./img/home.png";
 //import stakeIcon from "./img/stake.png";
-import todoIcon from "./img/todo.png";
+//import todoIcon from "./img/todo.png";
 import fuuLogo from "./img/kngfuu_logo.png";
-import socialIcon from "./img/social.png";
+//import socialIcon from "./img/social.png";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 
@@ -64,7 +64,7 @@ function App() {
               <div className="left-nav">
                 <ul>
                   <li>
-                    <a className={window.location.pathname=='/'?"active":""} href="/">  <img src={homeIcon} style={{"width": "16px", height: "16px"}} alt="" />Home</a>
+                    <a className={window.location.pathname=='/'?"active":""} href="/">Home</a>
                   </li>
                   {/* <li>
                     <a href="javascript:;"><img src={stakeIcon} style={{"width": "16px", height: "16px"}} alt="" />Stake</a>
@@ -74,16 +74,25 @@ function App() {
                   </li>
                   <li>
                     <a href="javascript:;"><img src={socialIcon} style={{"width": "16px", height: "16px"}} alt="" />Social</a>
-                  </li> 
+                  </li> */}
                   <li>
-                    <a href="https://app.bogged.finance/ftm/swap?tokenIn=FTM&tokenOut=0x89b61Ab033584918103698953870F07D6db412A3"><img src={todoIcon} style={{"width": "16px", height: "16px"}} alt="" />Buy KungFuu</a>
-                  </li>*/}
-                  <li>
-                    <a href="https://www.twitter.com/kungfuu_fi" target="_blank"><img src={todoIcon} style={{"width": "16px", height: "16px"}} alt="" />Twitter</a>
+                    <a href="https://app.bogged.finance/ftm/swap?tokenIn=FTM&tokenOut=0x89b61Ab033584918103698953870F07D6db412A3" target="_blank">Buy KungFuu</a>
                   </li>
                   <li>
-                    <a href="https://discord.gg/DdUBYwyHPu" target="_blank"><img src={socialIcon} style={{"width": "16px", height: "16px"}} alt="" />Discord</a>
+                    <a href="https://linktr.ee/kungfuu" target="_blank">LinkTree</a>
                   </li>
+                  {/*<li>
+                    <a href="https://www.twitter.com/kungfuu_fi" target="_blank">Twitter</a>
+                  </li>
+                  <li>
+                    <a href="https://t.me/kungfuu_fi" target="_blank">Telegram</a>
+                  </li>
+                  <li>
+                    <a href="https://discord.gg/DdUBYwyHPu" target="_blank">Discord</a>
+                </li>*/}
+                  <li>
+                    <a href="https://kungfuufinance.gitbook.io/kungfuu-finance/" target="_blank">Docs</a>
+                </li>
                 </ul>
               </div>
             </Col>
