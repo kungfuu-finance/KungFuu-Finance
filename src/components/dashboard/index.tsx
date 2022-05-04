@@ -64,7 +64,7 @@ export default function Dashboard() {
         }});
         let res1: any = await fetchsupply({params: optionsSupply});        
         //let res2: any = await fetchBUSD({params: {...optionsgetBUSD, params: {account : '0xaAEf45E31e2D2865A4722c1591BA4cd8f6e83bad'}}}); //RFV Address
-        const balance = await Moralis.Web3API.account.getNativeBalance({chain:'0xfa',address: '0x914aDbe1a641F1E4A8ce22776D342d4C2669f030'}); //Treasury Receiver
+        const balance = await Moralis.Web3API.account.getNativeBalance({chain:'0xfa',address: '0x29187b10a04B269Cf067AE013B3ab58d4affaC03'}); //Treasury Receiver
         setbalance(balance);
 
         const rfvbalance = await Moralis.Web3API.account.getTokenBalances({chain:'0xfa',token_addresses:['0x280dC734Aa2592a2f0d4582200CFd6D8067b72A8'],address: '0xaAEf45E31e2D2865A4722c1591BA4cd8f6e83bad'});
