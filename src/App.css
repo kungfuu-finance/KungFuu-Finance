@@ -9,9 +9,8 @@ body {
 .App {
   text-align: center;
 }
-
 .App-logo {
-  height: 40vmin;
+  height: 50vmin;
   pointer-events: none;
 }
 
@@ -21,6 +20,7 @@ body {
 
 .navBarTop .me-auto {
   margin-right: 0 !important;
+  padding-left: 20px;
 }
 
 .navbar-nav .nav-link {
@@ -72,12 +72,15 @@ body {
 
 .mainWrap {
   background: #000;
-  background-image: url('./back-desk-min.png');
+  background-image: url('./bg.png');
+  object-fit: contain;
 }
 
 .body-content {
   margin-top: 56px;
   height: 100vh;
+  font-family: 'Bangers', cursive;
+  font-size: 20px;
 }
 
 .left-nav {
@@ -114,26 +117,47 @@ body {
   width: 20px;
   height: 20px;
   margin-right: 8px;
+  font-family: 'Bangers', cursive;
+  font-size: 40px;
 }
 
 .left-nav ul li a.active {
-  color: #4a98f2;
+  color: #fff;
+  font-family: 'Bangers', cursive;
+  font-size: 40px;
 }
 
 .left-nav ul li a i {
   margin-right: 8px;
+  font-family: 'Bangers', cursive;
+  font-size: 40px;
 }
 
 .marketcap {
   display: flex;
   justify-content: space-between;
-
+  font-family: 'Bangers', cursive;
 }
 
 .market-cap-option span {
+  padding-top: 10px;
+  justify-content: left;
   display: flex;
-  color: #4a98f2;
-  text-shadow: 0px 0px 13px #4a98f2;
+  color: #fff;
+}
+
+.socials{
+  padding-top: 25px;
+  flex-direction: row;
+  display: flex;
+  justify-content: center;
+  margin:0 10px 10px 0;
+  color: #fff;
+  text-shadow: -2px 2px 4px #000;
+}
+
+.social-item{
+  margin:0 10px 10px 0;
 }
 
 .market-cap-option span i {
@@ -146,20 +170,33 @@ body {
 
 .market-cap-option {
   display: flex;
+  justify-content: space-between;
   flex-direction: column;
-  width: 33%;
-  margin-right: 17px;
+  width: 90%;
+  margin-right: 20px;
+  color: #fff;
+  border: 1px solid #13cfcf11;
+  background: #13182357;
+  box-shadow: 12px 12px 22px rgba(0, 0, 0, 0.25);
+  border-radius: 8px;
+  backdrop-filter: blur(15px);
+  text-align: center;
+  overflow: hidden;
 }
 
 .box {
-  border: 1px solid #323a40;
-  padding: 8px 13px;
-  border-radius: 7px;
-  margin-top: 10px;
-  color: #D0DCE8;
+  color: #fff;
+  border: 1px solid #13cfcf11;
+  background: #13182357;
+  box-shadow: 12px 12px 22px rgba(0, 0, 0, 0.25);
+  border-radius: 8px;
+  backdrop-filter: blur(15px);
+  text-align: center;
+  width: 100%;
+  overflow: hidden;
 }
 
-.box {
+.box2 {
   color: #fff;
   border: 1px solid #13cfcf11;
   background: #13182357;
@@ -185,29 +222,34 @@ body {
   right: -7px;
 }
 .roi-val {
-  color: #4a98f2;
-  text-shadow: 0px 0px 13px #4a98f2;
+  color: #683a88;
+  text-shadow: 0px 0px 13px #683a88;
 }
 
 .staking-wrap {
   margin-top: 25px;
-
 }
 
 .staking-wrap h2 {
-  font-size: 14px;
+  font-size: 36px;
   color: #fff;
   font-weight: 700;
+  text-shadow: -5px 2px 3px #000;
 }
 
 .market-cap-statistic-wrapper {
-  /* background: #070c1859; */
-  padding: 10px;
-  margin-top: 26px;
+  padding: 20px;
+  flex: .75;
+  padding-top: 100px;
   border-radius: 8px;
-  /* border: 1px solid rgba(19,207,207,.06666666666666667); */
   min-height: 397px;
-  /* background: rgba(19,24,35,.3411764705882353); */
+}
+
+.market-cap-statistic-wrapper h2 {
+    font-size: 36px;
+    color: #fff;
+    font-weight: 700;
+    text-shadow: -5px 2px 3px #000;
 }
 
 .staking-table th {
@@ -230,46 +272,6 @@ body {
   /* height: 48px; */
   min-width: 60px;
   text-align: center;
-}
-
-.calculator {
-  margin-top: 41px
-    /* background: #13171a80;
-  padding: 10px;
-  margin-top: 26px;
-  border-radius: 8px;
-  border: 1px solid #4a515a; */
-    /* border: 1px solid rgba(19,207,207,.06666666666666667);
-  background: rgba(19,24,35,.3411764705882353);
-  padding: 15px;
-  border-radius: 6px;
-  margin-top: 10px; */
-}
-
-.calculator-box {
-  border: 1px solid rgba(19, 207, 207, .06666666666666667);
-  background: rgba(19, 24, 35, .3411764705882353);
-  padding: 15px;
-  border-radius: 6px;
-  margin-top: 10px;
-}
-
-.calculator h2 {
-  color: #4a98f2;
-  font-size: 14px;
-  margin-bottom: 19px;
-  text-transform: uppercase;
-  display: flex;
-  color: #fff;
-  text-shadow: 0px 0px 13px rgba(38, 226, 179, 0.79);
-}
-.calculator h2 img{
-  margin-right: 6px;
-}
-.calculator-box h3 {
-  font-size: 14px;
-  text-align: center;
-  color: #D0DCE8B2;
 }
 
 .returns {
@@ -335,12 +337,12 @@ span.active {
 }
 
 button.bh-bt.btn.btn-secondary.btn-sm {
-  background-color: #4a98f2;
+  background-color: #683a88;
   box-shadow: 12px 12px 22px rgb(0 0 0 / 25%);
   border: none;
 }
 span.active {
-  background-color: #4a98f2;
+  background-color: #683a88;
   box-shadow: 12px 12px 22px rgb(0 0 0 / 25%);
 
 }
@@ -412,8 +414,10 @@ p.rwt {
   border: 1px solid rgba(19, 207, 207, .06666666666666667);
   background: rgba(19, 24, 35, .3411764705882353);
   padding: 15px;
-  border-radius: 6px;
+  border-radius: 10px;
   margin-top: 10px;
+  backdrop-filter: blur(2px);
+  font-family: 'Bangers', cursive;
 }
 
 .top-col {
@@ -426,14 +430,14 @@ p.rwt {
 
 .top-col h2 {
   margin: 0;
-
+  font-size: 20px;
 }
 
 .top-col h3 {
   display: flex;
-  color: #4a98f2;
-  text-shadow: 0px 0px 13px #4a98f2;
-  font-size: 15px;
+  color: #fff;
+  text-shadow: 0px 0px 13px #683a88;
+  font-size: 20px;
   margin: 0;
 }
 
@@ -443,7 +447,7 @@ p.rwt {
   justify-content: space-between;
   margin-top: 20px;
   color: #fff;
-  font-size: 13px;
+  font-size: 20px;
 }
 
 .navbar {
@@ -454,48 +458,78 @@ div.bg-dark {
   background: none !important;
 }
 .navbar-light .navbar-nav .wallet.nav-link{
-  color: #020202 !important;
+  color: #fff !important;
   border: 0;
   font-weight: 500;
-  background-color: #4a98f2;
+  background-color: #683a88;
   box-shadow: 12px 12px 22px rgb(0 0 0 / 25%);
 }
+.wallet2.nav-link{
+  color: #fff !important;
+  padding-left: 10px;
+  padding-right: 10px;
+  font-weight: 500;
+  font-size: 20px;
+  font-family: 'Bangers', cursive;
+}
+
+/* FOR EVERYTHING UNDER 767PX */
+
 @media(max-width:767px) {
 
-  /* .body-content{
+.center-up {
+  flex: 1;
+  justify-content: center;
+}
+
+.body-content{
   height: 100%;
-  } */
+  display: flex;
+  justify-content: center;
+}
+
   .marketcap {
+    flex: 1;
     flex-direction: column;
+    justify-content: center;
   }
 
   .market-cap-option {
+    padding: 10px;
     display: flex;
     flex-direction: column;
-    width: 100%;
     margin-right: 17px;
     margin-bottom: 15px;
   }
 
-  .navbar-light .navbar-toggler {
-    background: #464b50;
-  }
+  .align-center{
+    padding-top: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;  }
 
+  .navbar-light .navbar-toggler {
+    background: #683a88;
+    color: #fff;
+  }
   .left-nav {
     min-height: auto;
-  }
-
-  .presale {
-    width: 100%;
+    font-family: 'Bangers', cursive;
   }
 
   .mainWrap {
-    height: 100vh;
+    height: 100%;
+    background-color: #000;
   }
 }
 
-@media(min-width:767px) {
+/* FOR EVERYTHING OVER 767PX */
 
+@media(min-width:767px) {
+.center-up {
+  display:flex;
+  justify-content: center;
+}
   /* .body-content{
   height: 100%;
   } */
@@ -527,7 +561,8 @@ div.bg-dark {
   flex-direction: column;
   width: 100%;
   pointer-events: auto;
-  background-color: #604d4d !important;
+  font-family: 'Bangers', cursive;
+  background-color: #683a88 !important;
   background-clip: padding-box;
   outline: 0;
   max-width: 500px;
@@ -578,7 +613,7 @@ div.bg-dark {
 }
 
 .bg-dark {
-  --bs-bg-opacity: 0.5 !important;
+  --bs-bg-opacity: 0.7 !important;
 }
 
 .table-dark {

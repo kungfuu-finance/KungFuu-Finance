@@ -9,11 +9,7 @@ import {
   NavDropdown,
   Table,
 } from "react-bootstrap";
-import homeIcon from "./img/home.png";
-//import stakeIcon from "./img/stake.png";
-//import todoIcon from "./img/todo.png";
 import fuuLogo from "./img/kngfuu_logo.png";
-//import socialIcon from "./img/social.png";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 
@@ -21,7 +17,6 @@ import { BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 
 import { useMoralis, useChain } from "react-moralis";
 import Dashboard from "./components/dashboard";
-//import Presale from "./components/presale";
 
 function App() {
   const bogswap = "https://app.bogged.finance/ftm/swap?tokenIn=FTM&tokenOut=0x89b61Ab033584918103698953870F07D6db412A3"
@@ -38,16 +33,18 @@ function App() {
         <Container fluid>
           <Row>
             <Col lg="12">
-              <Navbar bg="dark" expand="lg" fixed="top">
+              <Navbar bg="black" expand="lg" fixed="top">
                 <Container fluid>
                   <Navbar.Brand href="/">
-                    <img src={fuuLogo} style={{"width": "100px", height: "30px"}} alt="" />
-                    {/* <h2 className="comname">Company name</h2> */}
+                    <img src={fuuLogo} style={{"width": "250px"}} alt="" />
                   </Navbar.Brand>
                   <Navbar.Toggle aria-controls="basic-navbar-nav" />
                   <Navbar.Collapse id="basic-navbar-nav" className="navBarTop">
+                      <Nav.Link className="wallet2" onClick={() => window.open("https://app.bogged.finance/ftm/swap?tokenIn=FTM&tokenOut=0x89b61Ab033584918103698953870F07D6db412A3")}>Buy KungFuu</Nav.Link>
+                      <Nav.Link className="wallet2" onClick={() => window.open("https://www.kungfuunft.app")}>Mint NFTs</Nav.Link>
+                      <Nav.Link className="wallet2" onClick={() => window.open("https://linktr.ee/kungfuu")}>LinkTree</Nav.Link>
+                      <Nav.Link className="wallet2" onClick={() => window.open("https://discord.com/channels/958319908075229224/958380541424570368/958380703286976532")}>Docs</Nav.Link>
                     <Nav className="me-auto">
-
                       <Nav.Link className="wallet" onClick={() => user?logout():setShow(true)}>{user?'0x…' + account?.slice(account?.length-4,account?.length):'Connect wallet'}</Nav.Link>
                     </Nav>
                   </Navbar.Collapse>
@@ -60,42 +57,6 @@ function App() {
       <div className="body-content">
         <Container fluid>
           <Row>
-            <Col lg="2">
-              <div className="left-nav">
-                <ul>
-                  <li>
-                    <a className={window.location.pathname=='/'?"active":""} href="/">Home</a>
-                  </li>
-                  {/* <li>
-                    <a href="javascript:;"><img src={stakeIcon} style={{"width": "16px", height: "16px"}} alt="" />Stake</a>
-                  </li> */}
-                  {/* <li>
-                    <a href="javascript:;"><img src={todoIcon} style={{"width": "16px", height: "16px"}} alt="" />Todo</a>
-                  </li>
-                  <li>
-                    <a href="javascript:;"><img src={socialIcon} style={{"width": "16px", height: "16px"}} alt="" />Social</a>
-                  </li> */}
-                  <li>
-                    <a href="https://app.bogged.finance/ftm/swap?tokenIn=FTM&tokenOut=0x89b61Ab033584918103698953870F07D6db412A3" target="_blank">Buy KungFuu</a>
-                  </li>
-                  <li>
-                    <a href="https://linktr.ee/kungfuu" target="_blank">LinkTree</a>
-                  </li>
-                  {/*<li>
-                    <a href="https://www.twitter.com/kungfuu_fi" target="_blank">Twitter</a>
-                  </li>
-                  <li>
-                    <a href="https://t.me/kungfuu_fi" target="_blank">Telegram</a>
-                  </li>
-                  <li>
-                    <a href="https://discord.gg/DdUBYwyHPu" target="_blank">Discord</a>
-                </li>*/}
-                  <li>
-                    <a href="https://kungfuufinance.gitbook.io/kungfuu-finance/" target="_blank">Docs</a>
-                </li>
-                </ul>
-              </div>
-            </Col>
             <Router>
               <Routes>
                 <Route path="/" element={<Dashboard />} />
